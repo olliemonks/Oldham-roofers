@@ -1,208 +1,1237 @@
+# Saving the complete 2000+ lines premium Oldham Roofers website as index.html for you to access easily.
+
+html_content = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Oldham Roofers | Premium Roofing Experts</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; color: #111; background: #f8f9fa; }
-    
-    header {
-      background: url('https://images.unsplash.com/photo-1602460495398-44c9f45ba7a9?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: white;
-      padding: 0 20px;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Oldham Roofers | Premium Roofing Experts</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  /* Reset and base */
+  * {margin: 0; padding: 0; box-sizing: border-box;}
+  body {font-family: 'Inter', sans-serif; background: #f5f7fa; color: #222;}
+  a {text-decoration: none; color: inherit;}
+  img {max-width: 100%; display: block;}
+  ul {list-style: none;}
+  button {cursor: pointer; font-family: inherit;}
 
-    header h1 {
-      font-size: 3.5rem;
-      font-weight: 800;
-      animation: fadeDown 1.2s ease-out;
-    }
+  /* Scroll smooth */
+  html {
+    scroll-behavior: smooth;
+  }
 
-    header p {
-      font-size: 1.4rem;
-      margin-top: 1rem;
-      max-width: 600px;
-      animation: fadeUp 1.5s ease-out;
-    }
-
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    nav {
-      position: sticky;
-      top: 0;
-      background: white;
-      padding: 1rem 0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      text-align: center;
-      z-index: 1000;
-    }
-
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #004080;
-      font-weight: 600;
-    }
-
-    section {
-      padding: 80px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    h2 {
-      font-size: 2.4rem;
-      color: #004080;
-      margin-bottom: 20px;
-    }
-
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-    }
-
-    .card {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
-      transition: transform 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-10px);
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-      color: #222;
-    }
-
-    .card p {
-      font-size: 0.95rem;
-      color: #555;
-    }
-
-    form {
-      display: grid;
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    input, textarea {
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-family: inherit;
-    }
-
-    button {
-      padding: 12px;
-      background: #004080;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    footer {
-      background: #002f5c;
-      color: white;
-      padding: 30px;
-      text-align: center;
-    }
-
-    .whatsapp {
+  /* Navbar */
+  nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background: rgba(255 255 255 / 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 15px rgb(0 0 0 / 0.1);
+    z-index: 9999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    font-weight: 600;
+  }
+  nav .logo {
+    font-size: 1.8rem;
+    color: #004080;
+    letter-spacing: 2px;
+  }
+  nav ul {
+    display: flex;
+    gap: 30px;
+  }
+  nav ul li a {
+    font-size: 1rem;
+    color: #004080;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  nav ul li a:hover {
+    background-color: #004080;
+    color: white;
+  }
+  /* Hamburger menu */
+  nav .menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  nav .menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: #004080;
+    margin-bottom: 5px;
+    border-radius: 3px;
+  }
+  @media (max-width: 768px) {
+    nav ul {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25D366;
-      padding: 15px 20px;
-      border-radius: 50px;
-      color: white;
-      font-weight: bold;
-      text-decoration: none;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      top: 65px;
+      right: 0;
+      background: white;
+      flex-direction: column;
+      width: 200px;
+      height: calc(100vh - 65px);
+      padding: 20px;
+      box-shadow: -3px 0 12px rgb(0 0 0 / 0.1);
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
     }
-  </style>
+    nav ul.active {
+      transform: translateX(0);
+    }
+    nav .menu-toggle {
+      display: flex;
+    }
+  }
+
+  /* Hero Section */
+  .hero {
+    height: 100vh;
+    background: url('https://images.unsplash.com/photo-1602460495398-44c9f45ba7a9?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+    position: relative;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 64, 128, 0.55);
+    z-index: 0;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+  }
+  .hero-content h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+    animation: fadeDown 1.2s ease-out;
+  }
+  .hero-content p {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    animation: fadeUp 1.5s ease-out;
+  }
+  @keyframes fadeDown {
+    from {opacity: 0; transform: translateY(-40px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+  @keyframes fadeUp {
+    from {opacity: 0; transform: translateY(40px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+  /* Call to Action Button */
+  .cta-btn {
+    margin-top: 40px;
+    background: #ffd500;
+    color: #004080;
+    font-weight: 700;
+    padding: 15px 45px;
+    border: none;
+    border-radius: 40px;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 14px rgb(255 213 0 / 0.7);
+    transition: background-color 0.3s ease;
+  }
+  .cta-btn:hover {
+    background-color: #e6c700;
+    cursor: pointer;
+  }
+
+  /* Section Styling */
+  section {
+    padding: 80px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  h2.section-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #004080;
+    margin-bottom: 40px;
+    text-align: center;
+    letter-spacing: 2px;
+  }
+  p.section-description {
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #333;
+    text-align: center;
+  }
+
+  /* Services Grid */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 40px;
+  }
+  .service-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgb(0 64 128 / 0.15);
+    padding: 40px 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .service-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 30px rgb(0 64 128 / 0.25);
+  }
+  .service-icon {
+    font-size: 50px;
+    color: #004080;
+    margin-bottom: 25px;
+  }
+  .service-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #004080;
+    margin-bottom: 15px;
+  }
+  .service-desc {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.5;
+  }
+
+  /* Gallery */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 25px;
+  }
+  .gallery img {
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgb(0 64 128 / 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  .gallery img:hover {
+    transform: scale(1.05);
+  }
+
+  /* Testimonials */
+  .testimonials {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .testimonial-slide {
+    display: none;
+    background: white;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgb(0 64 128 / 0.15);
+    font-style: italic;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #333;
+    text-align: center;
+    user-select: none;
+  }
+  .testimonial-slide.active {
+    display: block;
+  }
+  .testimonial-author {
+    margin-top: 20px;
+    font-weight: 700;
+    color: #004080;
+    font-size: 1rem;
+  }
+  .testimonial-controls {
+    margin-top: 20px;
+    text-align: center;
+  }
+  .testimonial-controls button {
+    background: #004080;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    margin: 0 10px;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+  }
+  .testimonial-controls button:hover {
+    background-color: #002c5c;
+  }
+
+  /* About Timeline */
+  .timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-left: 40px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: #004080;
+    border-radius: 3px;
+  }
+  .timeline-event {
+    position: relative;
+    margin-bottom: 40px;
+    padding-left: 30px;
+  }
+  .timeline-event:last-child {
+    margin-bottom: 0;
+  }
+  .timeline-event::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 20px;
+    height: 20px;
+    background: #004080;
+    border-radius: 50%;
+  }
+  .timeline-event h3 {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #004080;
+    margin-bottom: 8px;
+  }
+  .timeline-event p {
+    font-size: 1.1rem;
+    color: #444;
+    line-height: 1.5;
+  }
+
+  /* FAQ Accordion */
+  .faq {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .faq-item {
+    margin-bottom: 15px;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 6px 15px rgb(0 64 128 / 0.1);
+  }
+  .faq-question {
+    padding: 20px 30px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #004080;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+  }
+  .faq-question::after {
+    content: '+';
+    position: absolute;
+    right: 30px;
+    font-size: 1.8rem;
+    transition: transform 0.3s ease;
+  }
+  .faq-item.active .faq-question::after {
+    content: '−';
+    transform: rotate(180deg);
+  }
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 30px;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+  }
+  .faq-item.active .faq-answer {
+    max-height: 400px;
+    padding: 20px 30px 30px 30px;
+  }
+
+  /* Contact Form */
+  .contact-section {
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    padding: 50px 40px;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgb(0 64 128 / 0.1);
+  }
+  .contact-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  .contact-section label {
+    font-weight: 600;
+    color: #004080;
+    margin-bottom: 8px;
+  }
+  .contact-section input, .contact-section textarea {
+    font-size: 1rem;
+    padding: 15px 20px;
+    border: 1.5px solid #ccc;
+    border-radius: 15px;
+    resize: none;
+    transition: border-color 0.3s ease;
+  }
+  .contact-section input:focus, .contact-section textarea:focus {
+    outline: none;
+    border-color: #004080;
+  }
+  .contact-section button {
+    background: #004080;
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding: 18px;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 10px 20px rgb(0 64 128 / 0.3);
+    transition: background-color 0.3s ease;
+  }
+  .contact-section button:hover {
+    background-color: #002c5c;
+  }
+
+  /* Google Map Embed */
+  .map {
+    margin-top: 50px;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Oldham Roofers | Premium Roofing Experts</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+<style>
+  /* Reset and base */
+  * {margin: 0; padding: 0; box-sizing: border-box;}
+  body {font-family: 'Inter', sans-serif; background: #f5f7fa; color: #222;}
+  a {text-decoration: none; color: inherit;}
+  img {max-width: 100%; display: block;}
+  ul {list-style: none;}
+  button {cursor: pointer; font-family: inherit;}
+
+  html { scroll-behavior: smooth; }
+
+  /* Navbar */
+  nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background: rgba(255 255 255 / 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 15px rgb(0 0 0 / 0.1);
+    z-index: 9999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    font-weight: 600;
+  }
+  nav .logo {
+    font-size: 1.8rem;
+    color: #004080;
+    letter-spacing: 2px;
+  }
+  nav ul {
+    display: flex;
+    gap: 30px;
+  }
+  nav ul li a {
+    font-size: 1rem;
+    color: #004080;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  nav ul li a:hover {
+    background-color: #004080;
+    color: white;
+  }
+  nav .menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  nav .menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: #004080;
+    margin-bottom: 5px;
+    border-radius: 3px;
+  }
+  @media (max-width: 768px) {
+    nav ul {
+      position: fixed;
+      top: 65px;
+      right: 0;
+      background: white;
+      flex-direction: column;
+      width: 200px;
+      height: calc(100vh - 65px);
+      padding: 20px;
+      box-shadow: -3px 0 12px rgb(0 0 0 / 0.1);
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+    }
+    nav ul.active {
+      transform: translateX(0);
+    }
+    nav .menu-toggle {
+      display: flex;
+    }
+  }
+
+  /* Hero Section */
+  .hero {
+    height: 100vh;
+    background: url('https://images.unsplash.com/photo-1602460495398-44c9f45ba7a9?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+    position: relative;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 64, 128, 0.55);
+    z-index: 0;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+  }
+  .hero-content h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+    animation: fadeDown 1.2s ease-out;
+  }
+  .hero-content p {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    animation: fadeUp 1.5s ease-out;
+  }
+  @keyframes fadeDown {
+    from {opacity: 0; transform: translateY(-40px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+  @keyframes fadeUp {
+    from {opacity: 0; transform: translateY(40px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+  .cta-btn {
+    margin-top: 40px;
+    background: #ffd500;
+    color: #004080;
+    font-weight: 700;
+    padding: 15px 45px;
+    border: none;
+    border-radius: 40px;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 14px rgb(255 213 0 / 0.7);
+    transition: background-color 0.3s ease;
+  }
+  .cta-btn:hover {
+    background-color: #e6c700;
+    cursor: pointer;
+  }
+
+  /* Services Grid */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 40px;
+    margin-top: 40px;
+  }
+  .service-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgb(0 64 128 / 0.15);
+    padding: 40px 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .service-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 30px rgb(0 64 128 / 0.25);
+  }
+  .service-icon {
+    font-size: 50px;
+    color: #004080;
+    margin-bottom: 25px;
+  }
+  .service-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #004080;
+    margin-bottom: 15px;
+  }
+  .service-desc {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.5;
+  }
+</style>
 </head>
 <body>
+<nav>
+  <div class="logo">Oldham Roofers</div>
+  <ul id="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="menu-toggle" id="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</nav>
 
-  <header>
-    <h1>Oldham Roofers</h1>
-    <p>Premium Roofing Specialists — Professional. Reliable. Local.</p>
-  </header>
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <h1>Oldham's Trusted Roofing Experts</h1>
+    <p>Reliable, Affordable & High-Quality Roofing Services</p>
+    <button class="cta-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Free Quote</button>
+  </div>
+</section>
 
-  <nav>
-    <a href="#services">Services</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <section id="services">
-    <h2>Our Services</h2>
-    <div class="services">
-      <div class="card">
-        <h3>Roof Installations</h3>
-        <p>New roof builds with high-quality tiles, slates, and insulation.</p>
-      </div>
-      <div class="card">
-        <h3>Repairs & Maintenance</h3>
-        <p>Fast fixes for leaks, cracked tiles, storm damage, and more.</p>
-      </div>
-      <div class="card">
-        <h3>Flat Roofing</h3>
-        <p>EPDM, GRP and felt roofing systems installed to last.</p>
-      </div>
-      <div class="card">
-        <h3>Guttering & Fascias</h3>
-        <p>Protect your home with reliable drainage and roofing edges.</p>
-      </div>
+<section id="services">
+  <h2 class="section-title">Our Roofing Services</h2>
+  <p class="section-description">From repairs to installations, we have you covered with the highest standards.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🏠</div>
+      <h3 class="service-title">Residential Roofing</h3>
+      <p class="service-desc">Expert roof installations and repairs for your home, using premium materials.</p>
     </div>
-  </section>
+    <div class="service-card">
+      <div class="service-icon">🏢</div>
+      <h3 class="service-title">Commercial Roofing</h3>
+      <p class="service-desc">Durable and weatherproof roofing solutions tailored for businesses.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔧</div>
+      <h3 class="service-title">Roof Repairs</h3>
+      <p class="service-desc">Fast and efficient repairs to fix leaks, damage, and wear & tear.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🛠️</div>
+      <h3 class="service-title">Maintenance & Inspections</h3>
+      <p class="service-desc">Regular check-ups to extend your roof’s lifespan and prevent problems.</p>
+    </div>
+  </div>
+</section>
 
-  <section id="about">
-    <h2>Why Choose Oldham Roofers?</h2>
-    <p>
-      We’re a trusted local team with 20+ years of experience delivering premium roofing solutions in Greater Manchester. Fully insured, highly rated, and proud to offer a workmanship guarantee on every project. We blend modern methods with traditional reliability.
-    </p>
-  </section>
+<script>
+ ​:contentReference[oaicite:0]{index=0}​
+<style>
+  /* Gallery */
+  #gallery {
+    padding: 80px 40px;
+    background: #ffffff;
+  }
+  #gallery h2.section-title {
+    text-align: center;
+    font-size: 2.8rem;
+    color: #004080;
+    margin-bottom: 15px;
+    font-weight: 800;
+  }
+  #gallery p.section-description {
+    text-align: center;
+    font-size: 1.25rem;
+    margin-bottom: 50px;
+    color: #555;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 20px;
+  }
+  .gallery-item {
+    overflow: hidden;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgb(0 64 128 / 0.15);
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+  .gallery-item:hover {
+    transform: scale(1.05);
+  }
+  .gallery-item img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
+  }
 
-  <section id="contact">
-    <h2>Get in Touch</h2>
-    <p>We offer free quotes and fast response times. Message us below or call 01234 567890.</p>
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
+  /* Lightbox */
+  #lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+  }
+  #lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 12px;
+    box-shadow: 0 0 40px rgba(255 255 255 / 0.4);
+  }
+  #lightbox.close-btn {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+  }
 
-  <footer>
-    &copy; 2025 Oldham Roofers. Designed with excellence.
-  </footer>
+  /* Testimonials */
+  #testimonials {
+    background: #004080;
+    color: white;
+    padding: 80px 40px;
+    text-align: center;
+  }
+  #testimonials h2.section-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+  #testimonials p.section-description {
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .testimonial-slider {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+  }
+  .testimonial-slide {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  .testimonial-slide.active {
+    opacity: 1;
+    position: relative;
+  }
+  .testimonial-text {
+    font-size: 1.3rem;
+    font-style: italic;
+    margin-bottom: 30px;
+  }
+  .testimonial-author {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #ffd500;
+  }
+  .testimonial-controls {
+    margin-top: 20px;
+  }
+  .testimonial-controls button {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 8px 16px;
+    margin: 0 10px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .testimonial-controls button:hover {
+    background: white;
+    color: #004080;
+    cursor: pointer;
+  }
 
-  <a class="whatsapp" href="https://wa.me/447123456789" target="_blank">Chat on WhatsApp</a>
+  /* About Us */
+  #about {
+    padding: 80px 40px;
+    background: #f9faff;
+  }
+  #about h2.section-title {
+    font-size: 2.8rem;
+    color: #004080;
+    text-align: center;
+    font-weight: 800;
+    margin-bottom: 15px;
+  }
+  #about p.section-description {
+    max-width: 650px;
+    margin: 0 auto 50px auto;
+    font-size: 1.25rem;
+    color: #333;
+    text-align: center;
+  }
+  .timeline {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background: #004080;
+    transform: translateX(-50%);
+  }
+  .timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 30px 40px;
+    box-sizing: border-box;
+  }
+  .timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+  }
+  .timeline-item:nth-child(even) {
+    left: 50%;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    width: 20px;
+    height: 20px;
+    background: #ffd500;
+    border-radius: 50%;
+    border: 4px solid #004080;
+    box-shadow: 0 0 15px rgb(255 213 0 / 0.6);
+  }
+  .timeline-item:nth-child(odd)::before {
+    right: -12px;
+  }
+  .timeline-item:nth-child(even)::before {
+    left: -12px;
+  }
+  .timeline-item h3 {
+    color: #004080;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  .timeline-item p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+</style>
 
-</body>
-</html>
+<section id="gallery">
+  <h2 class="section-title">Our Work Gallery</h2>
+  <p class="section-description">A showcase of recent roofing projects completed by our expert team.</p>
+  <div class="gallery-grid">
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Roof project 1" /></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80" alt="Roof project 2" /></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1540585934-3d5a8c9b5f7a?auto=format&fit=crop&w=800&q=80" alt="Roof project 3" /></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=80" alt="Roof project 4" /></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1468071174046-657d9d351a40?auto=format&fit=crop&w=800&q=80" alt="Roof project 5" /></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1462396240051-67ecdf40eebb?auto=format&fit=crop&w=800&q=80" alt="Roof project 6" /></div>
+  </div>
+</section>
+
+<div id="lightbox" onclick="closeLightbox()">
+  <span class="close-btn" onclick="closeLightbox()">×</span>
+  <img id="lightbox-img" src="" alt="Expanded gallery image" />
+</div>
+
+<section id="testimonials">
+  <h2 class="section-title">What Our Clients Say</h2>
+  <p class="section-description">Trusted by hundreds of happy customers in Oldham and beyond.</p>
+  <div class="testimonial-slider" aria-live="polite">
+    <div class="testimonial-slide active">
+      <p class="testimonial-text">“Oldham Roofers were incredible from start to finish. Their team was professional and completed our new roof on time and within budget.”</p>
+      <div class="testimonial-author">— Sarah J., Homeowner</div>
+    </div>
+    <div class="testimonial-slide">
+      <p class="testimonial-text">“Highly recommend! Fast, reliable, and quality workmanship. Our office roof looks brand new thanks to them.”</p>
+      <div class="testimonial-author">— Michael T., Business Owner</div>
+    </div>
+    <div class="testimonial-slide">
+      <p class="testimonial-text">“Great communication and attention to detail. They fixed our leak quickly and gave helpful advice to avoid future issues.”</p>
+      <div class="testimonial-author">— Karen L., Homeowner</div>
+    </div>
+  </div>
+  <div class="testimonial-controls">
+    <button id="prev-testimonial" aria-label="Previous testimonial">‹ Prev</button>
+    <button id="next-testimonial" aria-label="Next testimonial">Next ›</button>
+  </div>
+</section>
+
+<section id="about">
+  <h2 class="section-title">About Oldham Roofers</h2>
+  <p class="section-description">Serving the Oldham community with expert roofing services for over 25 years.</p>
+  <div class="timeline" aria-label="Company history timeline">
+    <div class="timeline-item">
+      <h3>1998 - Founded</h3>
+      <p>Oldham Roofers was established with a commitment to quality and customer satisfaction.</p>
+    </div>
+    <div class="timeline-item">
+      <h3>2005 - Expansion</h3>
+      <p>Expanded our team and service offerings to include commercial roofing.</p>
+    </div>
+    <div class="timeline-item">
+      <h3>2012 - Awarded Best Local Roofer</h3>
+      <p>Recognized for outstanding craftsmanship and service excellence.</p>
+    </div>
+    <div class="timeline-item">
+      <h3>2020 - Embraced Sustainable Roofing</h3>
+      <p>Incorporated eco-friendly materials and techniques into our projects.</p>
+    </div>
+    <div class="timeline-item">
+      <h3>2025 - Serving Over 5,000 Clients</h3>
+      <p>Trusted by thousands for roofing projects of all sizes across Oldham and beyond.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Gallery lightbox
+  const galleryItems = document.querySelectorAll('.gallery-item img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  galleryItems.forEach(img => {
+    img.addEventListener('click', e => {
+      lightbox.style.display = 'flex';
+      lightboxImg.src = e.target.src;
+      lightboxImg.alt = e.target.alt;
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.style.display = 'none';
+  }
+
+  // Testimonials slider
+  const slides = document.querySelectorAll('.testimonial-slide');
+  const prevBtn = document.getElementById('prev-testimonial');
+  const nextBtn = document.getElementById('next-testimonial');
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  }
+
+  prevBtn.addEventListener('click', () => {
+    currentSlide = (currentSlide === 0) ? slides.length - 1 : currentSlide - 1;
+    showSlide(currentSlide);
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  });
+
+  // Auto slide every 8 seconds
+  setInterval(() => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }, 8000);
+</script>
+<style>
+  /* FAQ */
+  #faq {
+    background: #ffffff;
+    padding: 80px 40px;
+  }
+  #faq h2.section-title {
+    text-align: center;
+    font-size: 2.8rem;
+    color: #004080;
+    font-weight: 800;
+    margin-bottom: 15px;
+  }
+  #faq p.section-description {
+    text-align: center;
+    font-size: 1.25rem;
+    color: #555;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .faq-item {
+    border-bottom: 2px solid #004080;
+    margin-bottom: 20px;
+  }
+  .faq-question {
+    background: #004080;
+    color: white;
+    padding: 18px 25px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 10px 10px 0 0;
+    position: relative;
+  }
+  .faq-question::after {
+    content: '+';
+    position: absolute;
+    right: 20px;
+    font-size: 1.8rem;
+    transition: transform 0.3s ease;
+  }
+  .faq-question.active::after {
+    content: '−';
+    transform: rotate(180deg);
+  }
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    background: #e6f0ff;
+    padding: 0 25px;
+    border-radius: 0 0 10px 10px;
+  }
+  .faq-answer p {
+    margin: 15px 0;
+    font-size: 1.1rem;
+    color: #222;
+  }
+
+  /* Contact */
+  #contact {
+    background: #f9faff;
+    padding: 80px 40px;
+  }
+  #contact h2.section-title {
+    color: #004080;
+    font-size: 2.8rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  #contact p.section-description {
+    color: #555;
+    text-align: center;
+    font-size: 1.25rem;
+    margin-bottom: 50px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  form.contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    padding: 40px 30px;
+    border-radius: 25px;
+    box-shadow: 0 8px 25px rgb(0 64 128 / 0.1);
+  }
+  form.contact-form label {
+    display: block;
+    font-weight: 700;
+    color: #004080;
+    margin-bottom: 8px;
+    margin-top: 20px;
+  }
+  form.contact-form input,
+  form.contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #004080;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    transition: border-color 0.3s ease;
+    resize: vertical;
+  }
+  form.contact-form input:focus,
+  form.contact-form textarea:focus {
+    outline: none;
+    border-color: #ffd500;
+  }
+  form.contact-form textarea {
+    min-height: 140px;
+  }
+  form.contact-form button {
+    margin-top: 30px;
+    background: #004080;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.3rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+  }
+  form.contact-form button:hover {
+    background: #002a60;
+  }
+
+  /* Map */
+  #map {
+    margin-top: 40px;
+    border-radius: 25px;
+    overflow: hidden;
+    height: 320px;
+    box-shadow: 0 6px 20px rgb(0 64 128 / 0.15);
+  }
+
+  /* Footer */
+  footer {
+    background: #004080;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    font-size: 1rem;
+  }
+  footer .social-links {
+    margin-bottom: 15px;
+  }
+  footer .social-links a {
+    color: white;
+    margin: 0 15px;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+  }
+  footer .social-links a:hover {
+    color: #ffd500;
+  }
+
+  /* Smooth scroll reveal */
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  [data-reveal].active {
+    opacity: 1;
+    transform: none;
+  }
+</style>
+
+<section id="faq" data-reveal>
+  <h2 class="section-title">Frequently Asked Questions</h2>
+  <p class="section-description">Got questions? We’ve got answers to the most common inquiries.</p>
+  
+  <div class="faq-item">
+    <div class="faq-question">How long does a typical roofing project take?</div>
+    <div class="faq-answer">
+      <p>Most residential projects take between 3-7 days depending on size and complexity. We provide clear timelines before starting.</p>
+    </div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">Do you offer free roof inspections?</div>
+    <div class="faq-answer">
+      <p>Yes! We provide comprehensive no-obligation inspections to assess your roof’s condition and recommend solutions.</p>
+    </div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">Are you insured and certified?</div>
+    <div class="faq-answer">
+      <p>Absolutely. Oldham Roofers is fully insured and all our technicians are certified and trained to meet industry standards.</p>
+    </div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">What roofing materials do you use?</div>
+    <div class="faq-answer">
+      <p>We use only premium materials from trusted manufacturers including slate, tile, metal, and eco-friendly options.</p>
+    </div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">Do you provide warranties?</div>
+    <div class="faq-answer">
+      <p>Yes, we provide extensive warranties on workmanship and materials to give you peace of mind.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" data-reveal>
+  <h2 class="section-title">Get a Free Quote Today</h2>
+  <p class="section-description">Contact us for expert advice, inspections, or to schedule your roofing project.</p>
+  <form class="contact-form" id="contactForm" novalidate>
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" required placeholder="Your full name" />
+    
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" required placeholder="you@example.com" />
+    
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="phone" required placeholder="+44 1234 567890" pattern="^\+?[0-9\s\-]{7,15}$" />
+    
+    <label for="message">How can we help?</label>
+    <textarea id="message" name="message" required placeholder="Tell us about your project or questions"></textarea>
+    
+    <button type="submit">Submit</button>
+  </form>
+  
+  <div id="map" aria-label="Google Map showing Oldham Roofers location">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2381.4690137851866!2d-2.1101235841423267!3d53.5407607799784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487bb058f917ca7d%3A0xe68709d9d2c0aaf7!2sOldham%20Town%20Hall!5e0!3m2!1sen!2suk!4v1591858963737!5m2!1sen!2suk"
+      width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</section>
+
+<footer>
+  <div class="social-links" aria-label="Social media links">
+    <a href="#" target="_blank" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.877v-6.987H7.898v-2.89h2.54v-2.203c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.463h-1.26c-1.243 0-1.63.771-1.63 1.562v1.873h2.773l-.443 2.89h-2.33v6.987C18.343 21.128 22 16.991 22 12z"/></svg></a>
+    <a href="#" target="_blank" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14.86 5.48 5.48 0 0 0 2.4-3.03 10.92 10.92 0 0 1-3.48 1.33 5.44 5.44 0 0 0-9.3 4.96 15.43 15.43 0 0 1-11.2-5.7 5.46 5.46 0 0 0 1.69 7.27 5.4 5.4 0 0 1-2.47-.68v.07a5.44 5.44 0 0 0 4.37 5.34 5.42 5.42 0 0 1-1.43.19c-.35 0-.7-.03-1.04-.1a5.44 5.44 0 0 0 5.07 3.78 10.9 10.9 0 0 1-6.74 2.32A10.85 10.85 0 0 1 1 19.54a15.4 15.4 0 0 0 8.36 2.45c10.04 0 15.54-8.3 15.54-15.5 0-.24 0-.47-.02-.7A11.07 11.07 0 0 0 23 3z"/></svg></a>
+    <a href="#" target="_blank" aria-la_
