@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Oldham Roofers</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    h1 {
+      color: #00529b;
+    }
+    button {
+      background-color: #00529b;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    button:hover {
+      background-color: #003f7d;
+    }
+    #message {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Oldham Roofers</h1>
+    <p>Your trusted roofing company in Oldham</p>
+  </header>
+
+  <section>
+    <h2>Contact Us</h2>
+    <p>Call us today at <a href="tel:+441234567890">+44 1234 567 890</a></p>
+    <button id="contactBtn">Show Message</button>
+    <div id="message"></div>
+  </section>
+
+  <script>
+    // Simple script to show a message when button is clicked
+    document.getElementById('contactBtn').addEventListener('click', function() {
+      const messageDiv = document.getElementById('message');
+      messageDiv.textContent = "Thank you for your interest! We'll get back to you shortly.";
+    });
+  </script>
+</body>
+</html>
